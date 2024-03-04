@@ -1,0 +1,232 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.css-h4y409-MuiList-root{
+  padding-top: 200px !important;
+}
+.css-19z1ozs-MuiPaper-root-MuiAppBar-root{
+  background-color: whitesmoke !important;
+  color: #282c34 !important;
+}
+.css-164j6mi-MuiPaper-root-MuiAppBar-root{
+  background-color: whitesmoke !important;
+  color: #282c34 !important;
+}
+.css-19ygod6-MuiNativeSelect-select-MuiInputBase-input-MuiInput-input
+{
+  font: revert !important;
+}
+.css-1sim9df-MuiButtonBase-root-MuiButton-root
+{
+  background-color: darkgray !important;
+  color: white !important;
+}
+.icons{
+  display: flex;
+  gap: 13px;
+  margin-left: 5px;
+}
+.display-flex{
+  display: flex;
+  color: gray;
+}
+.footer-align
+{
+  margin-left: 250px;
+}
+.main-header{
+  width: 100%;
+  display: flex;
+}
+.sub-header{
+  width: 50% !important;
+}
+.profile-header{
+  width: 50% !important;
+  display: flex;
+}
+.dropdwn{
+  width: 40%;
+}
+.detail{
+  width: 50%;
+  font-size: x-small;
+  margin-top: 10%;
+  margin-left: 30%;
+}
+@media (max-width: 767px) {
+  .MuiGrid-grid-xs-12{
+    max-width: 70% !important;
+  }
+  
+}
+.css-1l4w6pd{
+  gap: 18px !important;
+  margin-top: 10px !important;
+}
+.mrgin-left{
+  margin-left: 20px;
+}
+.css-19z1ozs-MuiPaper-root-MuiAppBar-root
+{
+  max-height: 100vh !important;
+}
+.css-164j6mi-MuiPaper-root-MuiAppBar-root{
+  max-height: 100vh !important;
+}
+.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select{
+  min-height: 0.4375em !important;
+}
+.css-jedpe8-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
+  font: -webkit-small-control !important;
+}
+.css-z2eky3-MuiTypography-root
+{
+  margin-top: 4% !important;
+} 
+.css-yz9k0d-MuiInputBase-input{
+  margin-left: 4% !important;
+}
+@media screen and (max-width: 600px) {
+  .display-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .icons {
+    margin-top: 10px;
+  }
+  .profile-header{
+    display: -webkit-box !important;
+  }
+  .css-z2eky3-MuiTypography-root
+  {
+    margin-top: 12% !important;
+  }
+  .mrgin-left{
+    margin-left: -1px;
+  }
+  .detail{
+    margin-top: 3px !important;
+    margin-left: -20% !important;
+  }
+  .css-164j6mi-MuiPaper-root-MuiAppBar-root
+  {
+    max-height: 100vh !important;
+  }
+  .css-19z1ozs-MuiPaper-root-MuiAppBar-root
+  {
+    max-height: 100vh !important;
+  }
+  .avtar-icon{
+    margin-left: 129% !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .detail {
+    text-align: center;
+  }
+
+  .dropdwn {
+    margin-top: 3px;
+  }
+}
+.avtar-icon{
+  margin-left: 41%;
+}
+@media only screen and (min-width: 1200px) {
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sub-header {
+    margin-bottom: 20px;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .detail {
+    margin-right: -132px;
+  }
+
+  .dropdwn {
+    display: flex;
+    align-items: center;
+  }
+  .image_top{
+    margin-top: 5px !important;
+  }
+}
+.image_top
+{
+  margin-right: 25px;
+  margin-top: 7px;
+}
+/* @media screen and (min-width: 601px) {
+  .css-19z1ozs-MuiPaper-root-MuiAppBar-root
+  {
+    height: 10% !important;
+  }
+  .css-164j6mi-MuiPaper-root-MuiAppBar-root{
+    height: 10% !important;
+  }
+  .avtar-icon{
+    margin-left: 29% !important;
+  }
+} */
+.css-1wnsr1i{
+  border: none !important;
+}
