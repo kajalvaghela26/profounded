@@ -10,23 +10,20 @@ import {
   MenuList,
 } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import "../Button/style.scss";
-const options = [
-  "Create a merge commit",
-  "Squash and merge",
-  "Rebase and merge",
-];
+const options = ["Hindi", "English", "Marathi", "Tamil"];
 const DropDownBtn = ({ title, setOpenFrom }) => {
   const [btnOpen, setBtnOpen] = useState(false);
   const anchorRef = useRef(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  // const [selectedIndex, setSelectedIndex] = useState(1);
 
   const handleClick = () => {
-    setOpenFrom(true)
+    setOpenFrom(true);
   };
 
   const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
+    // setSelectedIndex(index);
     setBtnOpen(false);
   };
 
@@ -58,7 +55,7 @@ const DropDownBtn = ({ title, setOpenFrom }) => {
           aria-haspopup="menu"
           onClick={handleToggle}
         >
-          <ArrowDropDownIcon />
+          {btnOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
         </Button>
       </ButtonGroup>
       <Popper
@@ -70,6 +67,7 @@ const DropDownBtn = ({ title, setOpenFrom }) => {
         role={undefined}
         transition
         disablePortal
+        className="height-list"
       >
         {({ TransitionProps, placement }) => (
           <Grow
@@ -85,8 +83,6 @@ const DropDownBtn = ({ title, setOpenFrom }) => {
                   {options.map((option, index) => (
                     <MenuItem
                       key={option}
-                      disabled={index === 2}
-                      selected={index === selectedIndex}
                       onClick={(event) => handleMenuItemClick(event, index)}
                     >
                       {option}

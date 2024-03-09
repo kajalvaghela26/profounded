@@ -1,0 +1,46 @@
+.div-flex{
+    display: flex !important;
+}
+.width-input{
+    width: 90% !important;
+}
+.btn-width{
+    width: 10% !important;
+}
+.css-69324s button{
+    color: grey !important;
+    border: 1px solid grey !important;
+}
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+    padding: 13px 36px !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+    font-size: larger !important;
+}
+
+
+@media only screen and (max-width: 1024px){
+    .width-input
+    {
+        width: 82% !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .width-input
+    {
+        width: 77% !important;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .width-input
+    {
+        width: 148% !important;
+        margin-bottom: 22px;
+    }
+}
+.css-i4bv87-MuiSvgIcon-root {
+    font-size: xx-large !important;
+}
+

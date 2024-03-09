@@ -1,5 +1,4 @@
 import React from "react";
-import { style } from "./MaterialUI";
 import {
   Box,
   Typography,
@@ -8,15 +7,17 @@ import {
   InputLabel,
   Button,
 } from "@mui/material";
+// import {useStyles} from './MaterialUI'
 import Textarea from "@mui/joy/Textarea";
 // import TextField from '@mui/material/TextField';
 import "./style.scss";
+import { style } from "./MaterialUI";
 const From = ({ openFrom, close }) => {
   return (
     <>
       <Modal
         open={openFrom}
-        onClose={close}
+        // onClose={close}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -34,36 +35,56 @@ const From = ({ openFrom, close }) => {
             sx={{ mt: 2 }}
             className="sub-title"
           >
-            Connect with us today for a demo!
+            Connect with us today for a product demo!
           </Typography>
           <Typography>
             <InputLabel shrink htmlFor="bootstrap-input" className="label">
-              Name:
+              Name<span style={{ color: "red" }}>*</span>:
             </InputLabel>
             <TextField
               id="outlined-basic"
               variant="outlined"
               placeholder="Name"
               size="small"
+              required
             />
 
             <InputLabel shrink htmlFor="bootstrap-input" className="sub-label">
-              Email:
+              Email<span style={{ color: "red" }}>*</span>:
             </InputLabel>
             <TextField
               id="outlined-basic"
               variant="outlined"
               placeholder="Email Address"
               size="small"
+              required
             />
 
+            <InputLabel shrink htmlFor="bootstrap-input" className="sub-label">
+             Phone Number:
+            </InputLabel>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              placeholder="Phone Number"
+              size="small"
+            />
             <InputLabel shrink htmlFor="bootstrap-input" className="sub-label">
               Comment:
             </InputLabel>
             <Textarea placeholder="Type anything…" minRows={5} size="sm" />
-            <Button variant="outlined" className="btn-submit">
-              Submit
-            </Button>
+            <div className="btn-header">
+              <div className="btn-header-submit">
+                <Button variant="outlined" className="btn-submit">
+                  Submit
+                </Button>
+              </div>
+              <div className="btn-header-submit">
+                <Button variant="outlined" className="btn-submit" onClick={close}>
+                  Cancle
+                </Button>
+              </div>
+            </div>
           </Typography>
           <Typography className="policy">
             Privacy Policy: We hate spam and promise to keep your email address

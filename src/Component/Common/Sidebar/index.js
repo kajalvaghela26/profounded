@@ -20,79 +20,96 @@ import {
 } from "@mui/material";
 import Footer from "../Footer/index";
 import Editors from "../../Editor/Editor";
-import { AppBar, Drawer, DrawerHeader } from "./materialUICSS";
+import HideOnScroll, { AppBar, Drawer, DrawerHeader } from "./materialUICSS";
 import SearchBar from "../SearchBar";
+import { useDispatch } from "react-redux";
 import DropDownBtn from "../Button/DropDownBtn";
 import From from "../From";
+import { topicRequest } from "../../../Container/sagas/Editor";
 const SideBar = () => {
   const [open, setOpen] = useState(false);
   const [openFrom, setOpenFrom] = useState(false);
+  const [serachTopic, setSerachTopic] = useState("");
+  const dispatch = useDispatch();
+  const handleSearch = () => {
+    const payload = {
+      tran_id: "873928703kjer9374034",
+      systemrole: "You are a economics professor.",
+      topic: "Indian urbanization",
+    };
+    dispatch(topicRequest(payload));
+  };
+  console.log("serachTopic :>> ", serachTopic);
+
+  const handleDrawerToggle = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={() => setOpen(true)}
-              edge="start"
-              sx={{
-                marginRight: 5,
-                ...(open && { display: "none" }),
-              }}
-            >
-              <img src={smallIcon} height={75} width={200} />
-            </IconButton>
+        <HideOnScroll>
+          <AppBar position="fixed">
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerToggle}
+                edge="start"
+                sx={{ marginRight: 5 }}
+              >
+                <img src={smallIcon} height={75} width={200} />
+              </IconButton>
 
-            <div className="main-header">
-              <div className="sub-header"></div>
-              <div className="profile-header">
-                <div className="detail">
-                  <span>
-                    <div className="mrgin-left">last logged in</div>
-                    30 Jan, 2024, 4:50 AM
-                  </span>
-                </div>
-                <div className="dropdwn">
-                  <Typography component="div">
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/1.jpg"
-                      sx={{ width: 30, height: 30 }}
-                      className="avtar-icon"
-                    />
-                    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                      <Select
-                        value="John Doe"
-                        // onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                      >
-                        <MenuItem value="John Doe">
-                          <em>John Doe</em>
-                        </MenuItem>
-                        <MenuItem value="John Doe">John Doe</MenuItem>
-                        <MenuItem value="John Doe">John Doe</MenuItem>
-                        <MenuItem value="John Doe">John Doe</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </Typography>
+              <div className="main-header">
+                <div className="sub-header"></div>
+                <div className="profile-header">
+                  <div className="detail">
+                    <span>
+                      <div className="mrgin-left">last logged in</div>
+                      30 Jan, 2024, 4:50 AM
+                    </span>
+                  </div>
+                  <div className="dropdwn">
+                    <Typography component="div">
+                      <Avatar
+                        alt="Remy Sharp"
+                        src="/static/images/avatar/1.jpg"
+                        sx={{ width: 30, height: 30 }}
+                        className="avtar-icon"
+                      />
+                      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                        <Select
+                          value="John Doe"
+                          // onChange={handleChange}
+                          displayEmpty
+                          inputProps={{ "aria-label": "Without label" }}
+                        >
+                          <MenuItem value="John Doe">
+                            <em>John Doe</em>
+                          </MenuItem>
+                          <MenuItem value="John Doe">John Doe</MenuItem>
+                          <MenuItem value="John Doe">John Doe</MenuItem>
+                          <MenuItem value="John Doe">John Doe</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </Typography>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Toolbar>
-        </AppBar>
+            </Toolbar>
+          </AppBar>
+        </HideOnScroll>
         <Drawer variant="permanent" open={open}>
-          <DrawerHeader className="image_top">
+          {/* <DrawerHeader className="image_top">
             <img
               src={Logo}
               height={88}
               width={100}
               onClick={() => setOpen(false)}
             />
-          </DrawerHeader>
+          </DrawerHeader> */}
           <List></List>
           <List>
             <ListItem disablePadding sx={{ display: "block" }}>
@@ -120,7 +137,7 @@ const SideBar = () => {
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
           <Typography paragraph>
-            <SearchBar />
+            <SearchBar onClick={handleSearch} onChange={setSerachTopic} />
             <Editors />
             <Box display="flex" justifyContent="center">
               <DropDownBtn

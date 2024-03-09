@@ -1,0 +1,3 @@
+// export const REQUEST_TOPIC='REQUEST_TOPIC'
+export const SUCCESS_TOPIC='SUCCESS_TOPIC'
+export const FAIL_TOPIC='FAIL_TOPIC'

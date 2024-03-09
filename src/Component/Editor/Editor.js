@@ -12,7 +12,7 @@ const Editors = () => {
           plugins: "link image textpattern lists ",
           height: 300,
         }}
-        // value={value}
+        // value='<h2>Hellloo</h2>'
         // onEditorChange={handleEditorChange}
       />
     </>

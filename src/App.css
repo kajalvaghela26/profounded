@@ -40,11 +40,11 @@
   padding-top: 200px !important;
 }
 .css-19z1ozs-MuiPaper-root-MuiAppBar-root{
-  background-color: whitesmoke !important;
+  background-color: white !important;
   color: #282c34 !important;
 }
 .css-164j6mi-MuiPaper-root-MuiAppBar-root{
-  background-color: whitesmoke !important;
+  background-color: white !important;
   color: #282c34 !important;
 }
 .css-19ygod6-MuiNativeSelect-select-MuiInputBase-input-MuiInput-input
@@ -74,20 +74,20 @@
   display: flex;
 }
 .sub-header{
-  width: 50% !important;
+  width: 60% !important;
 }
 .profile-header{
-  width: 50% !important;
+  width: 40% !important;
   display: flex;
-}
+} 
 .dropdwn{
-  width: 40%;
+  width: 30%;
 }
 .detail{
-  width: 50%;
+  width: 70%;
   font-size: x-small;
   margin-top: 10%;
-  margin-left: 30%;
+  margin-left: 39%;
 }
 @media (max-width: 767px) {
   .MuiGrid-grid-xs-12{
@@ -117,7 +117,7 @@
 }
 .css-z2eky3-MuiTypography-root
 {
-  margin-top: 4% !important;
+  margin-top: 2% !important;
 } 
 .css-yz9k0d-MuiInputBase-input{
   margin-left: 4% !important;
@@ -199,7 +199,7 @@
   }
 
   .detail {
-    margin-right: -132px;
+    padding-bottom: 30px;
   }
 
   .dropdwn {
@@ -209,6 +209,15 @@
   .image_top{
     margin-top: 5px !important;
   }
+  .css-z2eky3-MuiTypography-root {
+    margin-top: 3% !important;
+}
+}
+
+@media only screen and (min-width: 2560px){
+  .detail {
+    padding-left: 41%;
+}
 }
 .image_top
 {
@@ -227,6 +236,20 @@
     margin-left: 29% !important;
   }
 } */
+@media only screen and (min-width: 768px) {
+  .profile-header{
+    width: 80% ;
+  }
+  .sub-header{
+    width: 20%;
+  }
+}
+.css-z2eky3-MuiTypography-root{
+  line-height: 3.5 !important;
+}
+.css-11lq3yg-MuiGrid-root{
+  width: 90% !important;
+}
 .css-1wnsr1i{
   border: none !important;
 }

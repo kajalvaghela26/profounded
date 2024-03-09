@@ -1,26 +1,36 @@
 import React from "react";
+import { Box, TextField, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { useStyles } from "../Sidebar/materialUICSS";
-import { IconButton, Grid, InputBase } from "@mui/material";
-const SearchBar = () => {
-  const classes = useStyles();
+import "./style.scss";
+const SearchBar = ({ onClick, onChange }) => {
   return (
-    <>
-      <Grid container className={classes.searchContainer}>
-        <Grid item xs={12} sm={8} md={6}>
-          <InputBase
-            className={classes.searchInput}
-            placeholder="Search…"
-            inputProps={{ "aria-label": "search" }}
+    <div className="div-flex">
+      <div className="width-input">
+        <Box
+          component="form"
+          sx={{
+            "& > :not(style)": { m: 1, width: "25ch" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            placeholder="Search...."
+            onChange={(e) => onChange(e.target.value)}
           />
-        </Grid>
-        <Grid item>
-          <IconButton className={classes.searchIcon} aria-label="search">
+        </Box>
+      </div>
+      <div className="btn-width">
+        <Box sx={{ "& button": { m: 1 } }}>
+          {" "}
+          <Button variant="outlined" onClick={onClick}>
             <SearchIcon />
-          </IconButton>
-        </Grid>
-      </Grid>
-    </>
+          </Button>
+        </Box>
+      </div>
+    </div>
   );
 };
 export default SearchBar;
