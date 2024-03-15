@@ -13,7 +13,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import "../Button/style.scss";
 const options = ["Hindi", "English", "Marathi", "Tamil"];
-const DropDownBtn = ({ title, setOpenFrom }) => {
+const DropDownBtn = ({ title, setOpenFrom, height, width }) => {
   const [btnOpen, setBtnOpen] = useState(false);
   const anchorRef = useRef(null);
   // const [selectedIndex, setSelectedIndex] = useState(1);
@@ -45,6 +45,7 @@ const DropDownBtn = ({ title, setOpenFrom }) => {
         variant="contained"
         ref={anchorRef}
         aria-label="Button group with a nested menu"
+        
       >
         <Button onClick={handleClick}>{title}</Button>
         <Button
@@ -57,43 +58,42 @@ const DropDownBtn = ({ title, setOpenFrom }) => {
         >
           {btnOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
         </Button>
+        <Popper
+          open={btnOpen}
+          anchorEl={anchorRef.current}
+          role={undefined}
+          transition
+          disablePortal
+          className="height-list"
+          
+        >
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{
+                transformOrigin:
+                  placement === "bottom" ? "center top" : "center bottom",
+              }}
+            >
+              <Paper>
+                <ClickAwayListener onClickAway={handleClose}>
+                  <MenuList id="split-button-menu" autoFocusItem>
+                    {options.map((option, index) => (
+                      <MenuItem
+                        key={option}
+                        onClick={(event) => handleMenuItemClick(event, index)}
+                        style={{ height, width }}  
+                      >
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
       </ButtonGroup>
-      <Popper
-        sx={{
-          zIndex: 1,
-        }}
-        open={btnOpen}
-        anchorEl={anchorRef.current}
-        role={undefined}
-        transition
-        disablePortal
-        className="height-list"
-      >
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{
-              transformOrigin:
-                placement === "bottom" ? "center top" : "center bottom",
-            }}
-          >
-            <Paper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id="split-button-menu" autoFocusItem>
-                  {options.map((option, index) => (
-                    <MenuItem
-                      key={option}
-                      onClick={(event) => handleMenuItemClick(event, index)}
-                    >
-                      {option}
-                    </MenuItem>
-                  ))}
-                </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
-      </Popper>
     </>
   );
 };

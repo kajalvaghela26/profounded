@@ -18,6 +18,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
+import axios from "axios";
 import Footer from "../Footer/index";
 import Editors from "../../Editor/Editor";
 import HideOnScroll, { AppBar, Drawer, DrawerHeader } from "./materialUICSS";
@@ -26,6 +27,8 @@ import { useDispatch } from "react-redux";
 import DropDownBtn from "../Button/DropDownBtn";
 import From from "../From";
 import { topicRequest } from "../../../Container/sagas/Editor";
+import "./style.scss";
+
 const SideBar = () => {
   const [open, setOpen] = useState(false);
   const [openFrom, setOpenFrom] = useState(false);
@@ -45,6 +48,28 @@ const SideBar = () => {
     setOpen(!open);
   };
 
+  const handleData = async () => {
+    const apiEndpoint =
+      "https://ky45lpx7ng.execute-api.us-east-2.amazonaws.com/prod/ped-apis"; // Example API endpoint for a POST request
+    const requestBody = {
+      tran_id: "873928703kjer9374034",
+      systemrole: "You are a economics professor.",
+      topic: "testament",
+    };
+
+    try {
+      const response = await axios.post(apiEndpoint, requestBody, {
+        headers: {
+          // Simulating a request from localhost:3000
+          Origin: "http://localhost:3000",
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("Response data:", response);
+    } catch (error) {
+      console.error("Error making API call:", error.message);
+    }
+  };
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -136,16 +161,26 @@ const SideBar = () => {
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <DrawerHeader />
-          <Typography paragraph>
-            <SearchBar onClick={handleSearch} onChange={setSerachTopic} />
+          <Typography>
+            <SearchBar onClick={handleData} onChange={setSerachTopic} />
             <Editors />
             <Box display="flex" justifyContent="center">
               <DropDownBtn
                 title="Download Document"
                 setOpenFrom={setOpenFrom}
               />
-              <DropDownBtn title="Download PPT" setOpenFrom={setOpenFrom} />
-              <DropDownBtn title="Download Video" setOpenFrom={setOpenFrom} />
+              <DropDownBtn
+                title="Download PPT"
+                setOpenFrom={setOpenFrom}
+                height="50px"
+                width="200px"
+              />
+              <DropDownBtn
+                title="Download Video"
+                setOpenFrom={setOpenFrom}
+                height="50px"
+                width="200px"
+              />
             </Box>
           </Typography>
           <Footer />

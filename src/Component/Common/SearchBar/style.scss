@@ -33,13 +33,38 @@
     }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 2560px) {
     .width-input
     {
         width: 148% !important;
         margin-bottom: 22px;
     }
+    .div-flex{
+    margin-top: 7%;
+    }
+
 }
+@media screen and (min-width:1024px) and (max-width:1440px)
+{
+    .div-flex{
+        margin-top: 3% !important;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:768px){
+
+    .div-flex{
+        margin-top: 9% !important;
+    }
+
+}
+
+// @media only screen and (max-width: 1440px){
+//     .div-flex {
+//         margin-top: 8%;
+//     }
+// }
+
 .css-i4bv87-MuiSvgIcon-root {
     font-size: xx-large !important;
 }
